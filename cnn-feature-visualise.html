@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>How does the CNN classify images?</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Convolutional Neural Networks</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<!-- <li><a href="generic.html" class="active">Generic</a></li> -->
+						<!-- <li><a href="elements.html">Elements</a></li> -->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">How does the CNN classify images?</h1>
+							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+							<p>
+								As mentioned previously, based on the features that have been extracted by the convolutional layers, classification of the image will then take place accordingly.
+							</p>
+							<p>
+								We call this as having certain highly activated feature maps that correspond to that particular class.
+							</p>
+							<h3>
+								What does that mean?
+							</h3>
+							<p>
+								For example, an image of a cat would most likely have highly activated feature maps corresponding to cat ears or the pattern on the cat's fur.
+							</p>
+							<p>
+								*** give visual image example of images and extracted features ***
+							</p>
+							<p>
+								In implementation, how a CNN works remains a black box, however by understanding how the feature maps work and visualising them, we can actually get a better insight into the inner workings of a CNN.
+							</p>
+							<h3>
+								How can we understand feature maps?
+							</h3>
+							<p>
+								For us to better understand feature maps and the patterns that significantly activates one, we could:
+								<ol>
+									<li>Look for specific images which result in a high mean actviation of that particular feature map</li>
+									<li>Generate a pattern by optimising pixel values in an input image, visualising an image which significantly activates a feature map</li>
+								</ol>
+								*** https://www.researchgate.net/publication/265022827_Visualizing_Higher-Layer_Features_of_a_Deep_Network ***
+							</p>
+							<h3>
+								Let's visualise some feature maps!
+							</h3>	
+							<p>
+								We shall now generate patterns for various feature maps throughout the convolutional layers of the model.
+							</p>
+							<p>
+								*** feature maps for layer 7 ***
+							</p>
+							<p>
+								*** feature maps for layer 20 ***
+							</p>
+							<p>
+								*** feature maps for layer 40 ***
+							</p>
+							<h3>
+								Notice how some patterns seem to be very familiar?
+							</h3>
+							<p>
+								Let us try to interpret some of these feature visualisations, and confirm our interpretations.
+							</p>
+							<p>
+								*** NTERACTIVE ***
+							</p>
+							<ul class="actions">
+								<li><a href="index.html#one" class="button">Back</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

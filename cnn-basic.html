@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>What is a CNN?</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Convolutional Neural Networks</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<!-- <li><a href="generic.html" class="active">Generic</a></li> -->
+						<!-- <li><a href="elements.html">Elements</a></li> -->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">What is a CNN?</h1>
+							<span class="image fit"><img src="images/cnn-architecture.jpeg" alt="" /></span>
+							<p>Here, we will learn about the basics of Convolutional Neural Networks (CNNs). CNNs are mainly split into 3 main parts: (1) Input, (2) Feature Learning, (3) Classification.</p>
+							<ol>
+								<li>
+									<h4>Input</h4>
+									<p>
+										The input to an image classification model is the image itself. Images are made up of an array of pixels, which each have a value ranging from 0 to 255. This array of pixels make up the input to the image classification model.
+									</p>
+								</li>
+								<li>
+									<h4>Feature Learning</h4>
+									<p>
+										Feature learning in the CNN model makes use of the convolutional layers to extract out feature maps from the input images.
+									</p>
+									<p>
+										In the convolutional layers, filters will be used to run through every spatial position on the input image. The filters will be mathematically applied on every spatial position of the input via a dot product. 
+									</p>
+									<p>	
+										You can think of this as taking a magnifying glass, and zooming into the image bit by bit. At each position, you will identify a specific feature, such as vertical lines. This process will be repeated, and each time a different feature will be identified, ultimately building up various feature maps.
+									</p>
+									<img src="images/sliding-filter.gif" style="max-width:40%;height:auto;display:block;margin-left:auto;margin-right:auto;margin-bottom:20px">
+									<p>
+										The output of the dot product, depending on the particular type of filter, will allow the model to extract out features such as vertical lines or horizontal lines, to name a few. 
+									</p>
+									<p>
+										<img src="images/forest_before.jpg"><img src="images/forest_after.jpg">
+									</p>
+									<p>
+										Of course, these feature maps and filters are determined by the model's calculations, and not all of them will be understandable by us humans. Some filters and feature maps may be too abstract for us to visualise.
+									</p>
+								</li>
+								<li>
+									<h4>Classification</h4>
+									<p>
+										Following the output from the various convolutional layers, they will be passed into the fully connected layers where the model will classify the image based on what features were extracted from the image.
+									</p>
+									<p>
+										You will learn more about this in the next section.
+									</p>
+								</li>
+
+								</li>
+							</ol>
+							<ul class="actions">
+								<li><a href="index.html#one" class="button">Back</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
