@@ -3906,4 +3906,70 @@ input, select, textarea {
 				background-attachment: scroll;
 			}
 
-		} 
+		}
+
+/* Custom */
+	.img-showcase {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.img-showcase > figure {
+		margin: 10px;
+	}
+	.img-showcase > figure > img {
+		width: 100%;
+		height: auto;
+		margin: 10px;
+		/* text-align: center;
+		line-height: 75px;
+		font-size: 30px; */
+	}
+	.img-showcase > figure > figcaption {
+		width: 100%;
+		height: auto;
+		text-align: center;
+		margin-bottom: 30px;
+		line-height: 20px;
+		font-size: 90%;
+	}
+
+/* Quiz */
+	/* Text of the questions */
+	.feature-map-quiz p:first-child {
+		font-weight: bold;
+	}
+
+	/* Each possible answer */
+	.ans {
+		margin-left: 10px;
+	}
+
+	/* Correct answer */
+	.right {
+		display: block;
+		border: solid 1px green;
+		background: url("greencheck.png") no-repeat 10px;
+		padding: 10px;
+		padding-left: 60px;
+	}
+
+	/* Incorrect answer */
+	.wrong {
+		display: block;
+		border: solid 1px red;
+		background: url("redx.png") no-repeat 10px;
+		padding: 10px;
+		padding-left: 60px;
+	}
+
+	/* Answer feedback */
+	.ans span {
+		display: none;
+		margin-left: 20px;
+		padding-top: 0.5em;
+	}
+
+	/* Take hidden feedback out of hiding when applied */
+	.show {
+		display: block;
+	}

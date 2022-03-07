@@ -53,13 +53,26 @@
 									<p>	
 										You can think of this as taking a magnifying glass, and zooming into the image bit by bit. At each position, you will identify a specific feature, such as vertical lines. This process will be repeated, and each time a different feature will be identified, ultimately building up various feature maps.
 									</p>
-									<img src="images/sliding-filter.gif" style="max-width:40%;height:auto;display:block;margin-left:auto;margin-right:auto;margin-bottom:20px">
+
+									<div class="img-showcase">
+										<figure>
+											<img src="images/sliding-filter.gif">
+											<figcaption>Animation of filter sliding over an image (insert credit)</figcaption>
+										</figure>
+									</div>
 									<p>
 										The output of the dot product, depending on the particular type of filter, will allow the model to extract out features such as vertical lines or horizontal lines, to name a few. 
 									</p>
-									<p>
-										<img src="images/forest_before.jpg"><img src="images/forest_after.jpg">
-									</p>
+									<div class="img-showcase">
+										<figure>
+											<img src="images/forest_before.jpg">
+											<figcaption>Image of forest before vertical line filter</figcaption>
+										</figure>
+										<figure>
+											<img src="images/forest_after.jpg">
+											<figcaption>Image of forest after vertical line filter</figcaption>
+										</figure>
+									</div>
 									<p>
 										Of course, these feature maps and filters are determined by the model's calculations, and not all of them will be understandable by us humans. Some filters and feature maps may be too abstract for us to visualise.
 									</p>

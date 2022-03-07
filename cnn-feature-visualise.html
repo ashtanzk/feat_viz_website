@@ -44,10 +44,7 @@
 								What does that mean?
 							</h3>
 							<p>
-								For example, an image of a cat would most likely have highly activated feature maps corresponding to cat ears or the pattern on the cat's fur.
-							</p>
-							<p>
-								*** give visual image example of images and extracted features ***
+								For example, we would expect that an image of a cat would most likely have highly activated feature maps corresponding to cat ears or the pattern on the cat's fur.
 							</p>
 							<p>
 								In implementation, how a CNN works remains a black box, however by understanding how the feature maps work and visualising them, we can actually get a better insight into the inner workings of a CNN.
@@ -69,15 +66,83 @@
 							<p>
 								We shall now generate patterns for various feature maps throughout the convolutional layers of the model.
 							</p>
-							<p>
-								*** feature maps for layer 7 ***
-							</p>
-							<p>
-								*** feature maps for layer 20 ***
-							</p>
-							<p>
-								*** feature maps for layer 40 ***
-							</p>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_7_filter_5.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_7_filter_8.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_7_filter_13.jpg">
+								</figure>
+							</div>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_7_filter_33.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_7_filter_39.jpg">
+									<figcaption>Filters from Layer 7</figcaption>
+								</figure>
+								<figure>
+									<img src="images/layer_7_filter_54.jpg">
+								</figure>
+							</div>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_20_filter_3.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_20_filter_5.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_20_filter_8.jpg">
+								</figure>
+							</div>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_20_filter_14.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_20_filter_33.jpg">
+									<figcaption>Filters from Layer 20</figcaption>
+								</figure>
+								<figure>
+									<img src="images/layer_20_filter_38.jpg">
+								</figure>
+							</div>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_40_filter_8.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_40_filter_12.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_40_filter_17.jpg">
+								</figure>
+								
+							</div>
+
+							<div class="img-showcase">
+								<figure>
+									<img src="images/layer_40_filter_45.jpg">
+								</figure>
+								<figure>
+									<img src="images/layer_40_filter_60.jpg">
+									<figcaption>Filters from Layer 40</figcaption>
+								</figure>
+								<figure>
+									<img src="images/layer_40_filter_64.jpg">
+								</figure>
+							</div>
+
 							<h3>
 								Notice how some patterns seem to be very familiar?
 							</h3>
@@ -87,6 +152,24 @@
 							<p>
 								*** NTERACTIVE ***
 							</p>
+							<div class="feature-map-quiz" id="q1">
+								<p>1. Which image do you think corresponds to this feature map?</p>
+								<img src="images/q1.jpg">
+								<!-- <p class="ans correct">a) Red<span>Correct, in light we use RGB (Red, Green, Blue)</span></p>
+								<p class="ans">b) Orange<span>That's not a primary color for ink or light.</span></p>
+								<p class="ans">c) Yellow<span>That's a primary color for inks, but not for light</span></p>
+								<p class="ans">d) Purple<span>That's not a primary color for ink or light.</span></p> -->
+								<p class="ans"><img src="images/dog.jpg"></p>
+								<p class="ans correct"><img src="images/chicken.JPG"></p>
+								<p class="ans"><img src="images/bear.jpg"></p>
+							</div>
+							<div class="feature-map-quiz" id="q2">
+								<p>2. Which image do you think corresponds to this feature map?</p>
+								<!-- <p class="ans ">a) CSS<span>CSS is a language, not a JavaScript library.</span></p>
+								<p class="ans">b) HTML<span>HTML is a markup language, not a JavaScript library</span></p>
+								<p class="ans correct">c) jQuery<span>Correct-a-mundo, jQuery is a wildly popular JavaScript library.</span></p>
+								<p class="ans">d) Python<span>Python is a programming language, or large snake, but not a JavaScript library.</span></p> -->
+							</div>
 							<ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
 							</ul>
@@ -112,6 +195,27 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script>
+				$(document).ready(function () {
+					$("p.ans").click(function () {
+						//Get the id of the div
+						var qnum = "#" + $(this).parent().attr("id");
+						//Clear previous freeback:
+						$(qnum + " p.ans").removeClass("right wrong");
+						$(qnum + " p span").css("display", "none");
+						//Apply right or wrong class to p and span.
+						var applyclass = "wrong"
+						var spancolor = "red"
+						if ($(this).hasClass("correct")) {
+							applyclass = "right";
+							spancolor = "green"
+						}
+						$(this).addClass(applyclass);
+						$(this).children(":first").css("display", "block").css("color", spancolor);
+					})
+				});
+			</script>
 
 	</body>
 </html>
