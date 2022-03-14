@@ -3073,7 +3073,7 @@ input, select, textarea {
 
 		.spotlights > section.inactive > .image:before,
 		body.is-preload .spotlights > section > .image:before {
-			opacity: 0;
+			opacity: 1;
 		}
 
 		.spotlights > section.inactive > .content > .inner,
@@ -3082,7 +3082,7 @@ input, select, textarea {
 			-webkit-transform: translateX(-1em);
 			-ms-transform: translateX(-1em);
 			transform: translateX(-1em);
-			opacity: 1;
+			opacity: 0;
 		}
 
 		@media screen and (max-width: 1680px) {
@@ -3933,43 +3933,191 @@ input, select, textarea {
 		font-size: 90%;
 	}
 
-/* Quiz */
+	/* Quiz */
 	/* Text of the questions */
-	.feature-map-quiz p:first-child {
+	.feature-map-quiz p:nth-child(1) {
 		font-weight: bold;
 	}
 
+	/* Image of the questions */
+	.feature-map-quiz img {
+		/* display: block;
+		margin-left: auto;
+		margin-right: auto; */
+		width: 40%;
+		height: auto;
+		margin: 15px;
+	}
+
+	/* Image of the answers */
+	.feature-map-quiz-answers {
+		display: flex;
+		flex-wrap: nowrap;
+		margin: 10px;
+	}
 	/* Each possible answer */
 	.ans {
-		margin-left: 10px;
+		text-align: center;
+		overflow: hidden;
+	}
+	.ans img:hover {
+		border: 2px solid rgb(235, 235, 235);
+	}
+
+	/* Answer images */
+	.ans img {
+		width: 95%;
+		max-width: 640px;
+		max-height:424px;
+		margin: 0px;
 	}
 
 	/* Correct answer */
 	.right {
 		display: block;
 		border: solid 1px green;
-		background: url("greencheck.png") no-repeat 10px;
+		background: url("greencheck.png") no-repeat content-box bottom left 5px;
 		padding: 10px;
-		padding-left: 60px;
+		margin: 10px;
 	}
 
 	/* Incorrect answer */
 	.wrong {
 		display: block;
 		border: solid 1px red;
-		background: url("redx.png") no-repeat 10px;
+		background: url("redx.png") no-repeat content-box bottom left 5px;
 		padding: 10px;
-		padding-left: 60px;
+		margin: 10px;
 	}
 
 	/* Answer feedback */
 	.ans span {
 		display: none;
-		margin-left: 20px;
+		margin: 20px;
+		margin-bottom: 0px;
 		padding-top: 0.5em;
+		padding-left: 1em;
 	}
 
 	/* Take hidden feedback out of hiding when applied */
 	.show {
+		display: inline;
+	}
+
+	/* Divider */
+	.divider {
+		border: 1px solid;
+		border-image: linear-gradient(to right, #5e42a6, #b74e91) 1;
+		border-radius: 5px;
+		height: 0.05em;
+	}
+
+	/* Feature visualisation interactive */
+	.feature-visualise-option {
+		display: flex;
+		flex-wrap: nowrap;
+		margin: 10px;
+	}
+
+	/* Options */
+	.option {
+		text-align: center;
+		overflow: hidden;
+	}
+	.option img:hover {
+		border: 2px solid rgb(235, 235, 235);
+	}
+
+	/* Option images */
+	.option img {
+		width: 40%;
+		max-width: 640px;
+		max-height:424px;
+		margin: 10px;
+		float: left;
+	}
+
+	/* Expand box (by adding "visualise" to class) to show activation plot and feature maps */
+	/* .visualise {
 		display: block;
+		border: solid 1px #ccc;
+		border-radius: 0.5em;
+		padding: 10px;
+		margin: 10px;
+	} */
+
+	/* .option span {
+		display: none;
+		flex-wrap: nowrap;
+		margin: 20px;
+		margin-bottom: 0px;
+		padding-top: 0.5em;
+		padding-left: 1em;
+	} */
+
+	.visualise {
+		/* display: inline-flex; */
+		display: none;
+		flex-wrap: wrap;
+		border: solid 1px #ccc;
+		border-radius: 2em;
+		padding: 10px;
+		margin: 10px;
+	}
+
+	.visualise p {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	.feature-plot {
+		display: flex;
+		flex-wrap: nowrap;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.feature-plot figure {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		text-align: center;
+		margin: auto;
+	}
+
+	.feature-plot img {
+		width: 100%;
+		height: auto;
+		margin: 10px;
+	}
+
+	.feature-maps {
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.feature-maps-rows {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		text-align: center;
+	}
+
+	.feature-maps-rows figure {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		text-align: center;
+		margin: 5px
+	}
+
+	.feature-maps-rows img {
+		width: 75%;
+		height: auto;
+		margin: auto;
 	}
