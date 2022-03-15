@@ -20,8 +20,6 @@
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<!-- <li><a href="generic.html" class="active">Generic</a></li> -->
-						<!-- <li><a href="elements.html">Elements</a></li> -->
 					</ul>
 				</nav>
 			</header>
@@ -34,8 +32,63 @@
 						<div class="inner">
 							<h1 class="major">Let's try manipulating some images!</h1>
 							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
+							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
+							<p>Now we can combine these newly gained knowledge to try and manipulate an existing image.</p>
+							<p>First, we will start off with this input image of a broccoli.</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/broccoli.jpg">
+									<figcaption>Image of a broccoli</figcaption>
+								</figure>
+							</div>
+							<p>Running this image through the CNN model, we can see that it is correctly classified as broccoli with 99% confidence.</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/broccoli-plot.png" style="background-color: white;">
+									<figcaption>Activation plot for original broccoli</figcaption>
+								</figure>
+								<figure>
+									<img src="images/broccoli-predictions.png" style="background-color: white;">
+									<figcaption>Prediction scores for original broccoli</figcaption>
+								</figure>
+							</div>
+							<p>Using the knowledge we have gained previously regarding optimising pixel values, we can now try to incorporate that here to minimise the class activation of the original broccoli image.</p>
+							<p>We introduce a generated image by altering the pixel values, giving us this pertubation image.</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/broccoli-pertubation.jpg">
+									<figcaption>Pertubation image</figcaption>
+								</figure>
+							</div>
+							<p>We add this to the original image to generate the manipulated image of the broccoli.</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/broccoli.jpg">
+									<figcaption>Image of a broccoli</figcaption>
+								</figure>
+								<figure>
+									<img src="images/broccoli-pertubation.jpg">
+									<figcaption>Pertubation image</figcaption>
+								</figure>
+								<figure>
+									<img src="images/broccoli-adversarial.jpg">
+									<figcaption>Manipulated broccoli</figcaption>
+								</figure>
+							</div>
+							<p>With this newly manipulated image of the broccoli, we can run this through the same model to see the results.</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/broccoli-adversarial-plot.png" style="background-color: white;">
+									<figcaption>Activation plot for manipulated broccoli</figcaption>
+								</figure>
+								<figure>
+									<img src="images/broccoli-adversarial-predictions.png" style="background-color: white;">
+									<figcaption>Prediction scores for manipulated broccoli</figcaption>
+								</figure>
+							</div>
+							<p>The manipulated image of the broccoli is now classified as a sombrero with a confidence of 29%, meaning that the addition of the pertubation has altered the class of the image.</p>
+							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to activate other feature maps, changing the classification of the image. </p>
 							<ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
 							</ul>
