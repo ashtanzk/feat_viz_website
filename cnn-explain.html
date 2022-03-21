@@ -42,10 +42,25 @@
 								What does that mean?
 							</h3>
 							<p>
-								For example, we would expect that an image of a cat would most likely have highly activated feature maps corresponding to cat ears or the pattern on the cat's fur.
+								For example, we would expect that an image of a building with vaulted ceilings would have highly activated feature maps corresponding to the arched structures, which is shown in the following example:
+							</p>
+							<div class="img-showcase">
+								<figure>
+									<img src="images/feature-map-illustration-white.png" style="width:50%;">
+									<figcaption>Feature maps</figcaption>
+								</figure>
+							</div>
+							<p>
+								In implementation, how a CNN works remains a black box, however by understanding how the feature maps work and visualising them, we can actually get a better insight into the inner workings of a CNN, which is the explainability of the model.
+							</p>
+							<h3>
+								Why do we need explainability of CNN models?
+							</h3>
+							<p>
+								The explainability of CNN models in this case is provided by visualising the feature maps of the model. By knowing and seeing which feature maps are activated by a certain image, we can check to see if the model is picking up the correct features, such as in the arched structures example above.
 							</p>
 							<p>
-								In implementation, how a CNN works remains a black box, however by understanding how the feature maps work and visualising them, we can actually get a better insight into the inner workings of a CNN.
+								If a model is picking up the wrong features, we have an indication that the accuracy of the model is low.
 							</p>
 							<h3>
 								How can we understand feature maps?
@@ -56,7 +71,7 @@
 									<li>Look for specific images which result in a high mean actviation of that particular feature map</li>
 									<li>Generate a pattern by optimising pixel values such that a specific feature map is highly activated</li>
 								</ol>
-								For the purpose of this demo, we will be using option 2 to visualise the feature maps of a pre-trained VGG16 model [1].
+								For the purpose of this demo, we will be using option 2 to visualise the feature maps of a pre-trained VGG16 model.
 							</p>
 							<h3>
 								Let's visualise some feature maps!
