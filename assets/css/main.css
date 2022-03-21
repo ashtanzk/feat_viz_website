@@ -4077,29 +4077,7 @@ input, select, textarea {
 		margin-right: auto;
 		text-align: center;
 	}
-
-	.feature-plot {
-		display: flex;
-		flex-wrap: nowrap;
-		width: 50%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.feature-plot figure {
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: row;
-		text-align: center;
-		margin: auto;
-	}
-
-	.feature-plot img {
-		width: 100%;
-		height: auto;
-		margin: 10px;
-	}
-
+	
 	.feature-maps {
 		display: inline-block;
 		margin-left: auto;
