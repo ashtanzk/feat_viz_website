@@ -215,53 +215,54 @@
 								Now, we will try to visualise the most highly activated feature maps for a given image.
 							</p>
 							<div class="feature-visualise">
-								<p>Select an image to view the mean activation plots, as well as the filters with high activations.</p>
+								<div class="feature-maps-rows">
 									<p class="option" id="feature1"><a href="cnn-explain.html#feature1"><img src="images/butterfly.jpg" class="feature-option"></a></p>
-									<div class="visualise">
-										<div class="feature-maps">
-											<div class="feature-maps-rows">
-												<figure><img src="images/butterfly-feature-1.jpg"></figure>
-												<figure><img src="images/butterfly-feature-2.jpg"></figure>
-												<figure><img src="images/butterfly-feature-3.jpg"></figure>
-											</div>
-											<div class="feature-maps-rows">
-												<figure><img src="images/butterfly-feature-4.jpg"></figure>
-												<figure><img src="images/butterfly-feature-5.jpg"></figure>
-												<figure><img src="images/butterfly-feature-6.jpg"></figure>
-											</div>
-										</div>
-										<p>Here, we can definitely make out some butterfly patterns from the feature maps, especially the last one.</p>
-										<p>Most of the feature maps seem to resemble the shape of the wings, or the patterns on the wings.</p>
-									</div>
-									<p class="option" id="feature2"><a class="open-button" href="cnn-explain.html#feature2"><img src="images/flower.jpg" class="feature-option"></a></p>
-									<div class="visualise">
-										<div class="feature-maps">
-											<div class="feature-maps-rows">
-												<figure><img src="images/flower-feature-1.jpg"></figure>
-												<figure><img src="images/flower-feature-2.jpg"></figure>
-											</div>
-											<div class="feature-maps-rows">
-												<figure><img src="images/flower-feature-3.jpg"></figure>
-												<figure><img src="images/flower-feature-4.jpg"></figure>
-											</div>
-										</div>
-										<p>Looking at the feature maps for the flower, we can definitely make out some form of circular patterns, as well as something resembling the flower petals.</p>
-									</div>
+									<p class="option" id="feature2"><a href="cnn-explain.html#feature2"><img src="images/flower.jpg" class="feature-option"></a></p>
 									<p class="option" id="feature3"><a href="cnn-explain.html#feature3"><img src="images/tabbycat.jpg" class="feature-option"></a></p>
-									<div class="visualise">
-										<div class="feature-maps">
-											<div class="feature-maps-rows">
-												<figure><img src="images/tabbycat-feature-1.jpg"></figure>
-												<figure><img src="images/tabbycat-feature-2.jpg"></figure>
-											</div>
-											<div class="feature-maps-rows">
-												<figure><img src="images/tabbycat-feature-3.jpg"></figure>
-												<figure><img src="images/tabbycat-feature-4.jpg"></figure>
-											</div>
+								</div>
+								<div class="visualise feature1">
+									<div class="feature-maps">
+										<div class="feature-maps-rows">
+											<figure><img src="images/butterfly-feature-1.jpg"></figure>
+											<figure><img src="images/butterfly-feature-2.jpg"></figure>
+											<figure><img src="images/butterfly-feature-3.jpg"></figure>
 										</div>
-										<p>Here, we can distinctly make out the shape of cat's ears in the feature maps.</p>
-										<p>There also seems to be some form of cat's fur pattern in the last feature map.</p>
+										<div class="feature-maps-rows">
+											<figure><img src="images/butterfly-feature-4.jpg"></figure>
+											<figure><img src="images/butterfly-feature-5.jpg"></figure>
+											<figure><img src="images/butterfly-feature-6.jpg"></figure>
+										</div>
 									</div>
+									<p>Here, we can definitely make out some butterfly patterns from the feature maps, especially the last one.</p>
+									<p>Most of the feature maps seem to resemble the shape of the wings, or the patterns on the wings.</p>
+								</div>
+								<div class="visualise feature2">
+									<div class="feature-maps">
+										<div class="feature-maps-rows">
+											<figure><img src="images/flower-feature-1.jpg"></figure>
+											<figure><img src="images/flower-feature-2.jpg"></figure>
+										</div>
+										<div class="feature-maps-rows">
+											<figure><img src="images/flower-feature-3.jpg"></figure>
+											<figure><img src="images/flower-feature-4.jpg"></figure>
+										</div>
+									</div>
+									<p>Here, we can definitely make out some form of circular patterns, as well as something resembling flower petals.</p>
+								</div>
+								<div class="visualise feature3">
+									<div class="feature-maps">
+										<div class="feature-maps-rows">
+											<figure><img src="images/tabbycat-feature-1.jpg"></figure>
+											<figure><img src="images/tabbycat-feature-2.jpg"></figure>
+										</div>
+										<div class="feature-maps-rows">
+											<figure><img src="images/tabbycat-feature-3.jpg"></figure>
+											<figure><img src="images/tabbycat-feature-4.jpg"></figure>
+										</div>
+									</div>
+									<p>Here, we can distinctly make out the shape of cat's ears in the feature maps.</p>
+									<p>There also seems to be some form of cat's fur pattern in the last feature map.</p>
+								</div>
 							</div>
 
 							<hr class="divider">
@@ -328,21 +329,19 @@
 			<script>
 				$(document).ready(function () {
 					$("img.feature-option").click(function () {
+						var fnum = $(this).parent().parent().attr('id')
 						// Check if the option has been clicked before, and remove the span if yes
 						if ($(this).parent().parent().hasClass("select")) {
 							$(this).parent().parent().removeClass("select");
-							$(this).parent().parent().next().css("display", "none");
+							$(this).parent().parent().parent().parent().children(".visualise."+ fnum).css("display", "none");
 							return;
 						}
 						// Clear previous feedback
 						$(this).parent().parent().parent().children().removeClass("select");
 						$('.visualise').css("display", "none");
-						// Show span of selected image
+						// Show div .visualise.feature# of selected image
 						$(this).parent().parent().addClass("select");
-						$(this).parent().parent().next().css("display", "inline-flex");
-						// 
-						// $(this).next().next().css("display", "inline-flex");
-						// $(this).parent().next().css("display", "flex");
+						$(this).parent().parent().parent().parent().children(".visualise."+ fnum).css("display", "inline-flex");
 					})
 				});
 			</script>

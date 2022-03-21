@@ -4017,49 +4017,6 @@ input, select, textarea {
 		height: 0.05em;
 	}
 
-	/* Feature visualisation interactive */
-	.feature-visualise-option {
-		display: flex;
-		flex-wrap: nowrap;
-		margin: 10px;
-	}
-
-	/* Options */
-	.option {
-		text-align: center;
-		overflow: hidden;
-	}
-	.option img:hover {
-		border: 2px solid rgb(235, 235, 235);
-	}
-
-	/* Option images */
-	.option img {
-		width: 40%;
-		max-width: 640px;
-		max-height:424px;
-		margin: 10px;
-		float: left;
-	}
-
-	/* Expand box (by adding "visualise" to class) to show activation plot and feature maps */
-	/* .visualise {
-		display: block;
-		border: solid 1px #ccc;
-		border-radius: 0.5em;
-		padding: 10px;
-		margin: 10px;
-	} */
-
-	/* .option span {
-		display: none;
-		flex-wrap: nowrap;
-		margin: 20px;
-		margin-bottom: 0px;
-		padding-top: 0.5em;
-		padding-left: 1em;
-	} */
-
 	.visualise {
 		/* display: inline-flex; */
 		display: none;
@@ -4077,7 +4034,7 @@ input, select, textarea {
 		margin-right: auto;
 		text-align: center;
 	}
-	
+
 	.feature-maps {
 		display: inline-block;
 		margin-left: auto;
@@ -4103,4 +4060,25 @@ input, select, textarea {
 		width: 75%;
 		height: auto;
 		margin: auto;
+	}
+
+	/* Options */
+	.option {
+		text-align: center;
+		overflow: hidden;
+		margin: 10px;
+	}
+	.option img:hover {
+		border: 2px solid rgb(235, 235, 235);
+	}
+
+	/* Option images */
+	.option img {
+		width: 100%;
+		max-width: 640px;
+		max-height:424px;
+	}
+
+	.option a {
+		border-bottom: none;
 	}
