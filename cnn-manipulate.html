@@ -35,6 +35,8 @@
 							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
 							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
 							<p>Now we can combine these newly gained knowledge to try and manipulate an existing image.</p>
+							<p>***INPUT HERE AN EXPLANATION OF WHAT IS THE ACTIVATION PLOTS AND WHAT DO THE AXES REPRESENT***</p>
+							<p>***EXPLAIN WHAT METHOD OF MANIPULATION WE WILL BE USING (FGSM)***</p>
 							<p>First, we will start off with this input image of a broccoli.</p>
 							<div class="img-showcase">
 								<figure>
@@ -50,7 +52,10 @@
 								</figure>
 								<figure>
 									<img src="images/broccoli-predictions.png" style="background-color: white;">
-									<figcaption>Prediction scores for original broccoli</figcaption>
+									<figcaption>Predict<ul class="actions">
+										<li><a href="cnn-basic.html" class="button">Previous</a></li>
+										<li><a href="cnn-explain.html" class="button">Next</a></li>
+									</ul>on scores for original broccoli</figcaption>
 								</figure>
 							</div>
 							<p>Using the knowledge we have gained previously regarding optimising pixel values, we can now try to incorporate that here to minimise the class activation of the original broccoli image.</p>
@@ -62,6 +67,7 @@
 								</figure>
 							</div>
 							<p>We add this to the original image to generate the manipulated image of the broccoli.</p>
+							<p>***NEED TO CHANGE HOW THE MANIPULATED IMAGES ARE DISPLAYED. CHANGE THIS TO A TWO COLUMN TO SHOW THE COMPARISON BETWEEN ORIGINAL AND MANIPULATED***</p>
 							<div class="img-showcase">
 								<figure>
 									<img src="images/broccoli.jpg">
@@ -89,8 +95,12 @@
 							</div>
 							<p>The manipulated image of the broccoli is now classified as a sombrero with a confidence of 29%, meaning that the addition of the pertubation has altered the class of the image.</p>
 							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to activate other feature maps, changing the classification of the image. </p>
-							<ul class="actions">
+							<!-- <ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
+							</ul> -->
+							<ul class="actions">
+								<li><a href="cnn-explain.html" class="button">Previous</a></li>
+								<li><a href="index.html#one" class="button">Home</a></li>
 							</ul>
 						</div>
 					</section>
