@@ -42,7 +42,10 @@
 								What does that mean?
 							</h3>
 							<p>
-								For example, we would expect that an image of a building with vaulted ceilings would have highly activated feature maps corresponding to the arched structures, which is shown in the following example:
+								These feature maps are learned by the model during training, and each map is supposed to extract a certain feature given the input image. There are many feature maps found at each convolutional layer, and this is dependent on the configuration of the CNN model.
+							</p>
+							<p>
+								For example, we would expect that an image of a building with vaulted ceilings would have highly activated feature maps corresponding to the arched structures. 
 							</p>
 							<div class="img-showcase">
 								<figure>
@@ -51,33 +54,36 @@
 								</figure>
 							</div>
 							<p>
-								In implementation, how a CNN works remains a black box, however by understanding how the feature maps work and visualising them, we can actually get a better insight into the inner workings of a CNN, which is the explainability of the model.
+								However, the feature maps at the earlier layers may not have such detailed and elaborate features. Instead, the feature maps present at the earlier layers may serve to only extract out vertical lines for example.
+							</p>
+							<p>
+								In implementation, how a CNN works seems to be a black box, with very little true understanding of how the model does what it does. However, by understanding how the feature maps work and visualising them, we can actually break down the inner workings of the CNN, giving us explainability of the model.
 							</p>
 							<h3>
 								Why do we need explainability of CNN models?
 							</h3>
 							<p>
-								The explainability of CNN models in this case is provided by visualising the feature maps of the model. By knowing and seeing which feature maps are activated by a certain image, we can check to see if the model is picking up the correct features, such as in the arched structures example above.
+								The explainability of CNN models in this case is provided by visualising the feature maps of the model.
 							</p>
 							<p>
-								If a model is picking up the wrong features, we have an indication that the accuracy of the model is low.
+								By knowing and seeing which feature maps are activated by a certain image, we can check to see if the model is picking up the correct features, such as in the arched structures example above.	If a model is picking up the wrong features, we have an indication that the accuracy of the model may be low.
 							</p>
 							<h3>
 								How can we understand feature maps?
 							</h3>
 							<p>
-								For us to better understand feature maps and the patterns that significantly activates one, we could:
+								For us to better understand feature maps and visualise the patterns that significantly activates one, we could:
 								<ol>
 									<li>Look for specific images which result in a high mean actviation of that particular feature map</li>
 									<li>Generate a pattern by optimising pixel values such that a specific feature map is highly activated</li>
 								</ol>
-								For the purpose of this demo, we will be using option 2 to visualise the feature maps of a pre-trained VGG16 model.
+								For the purpose of this demo, we will be using the second option to visualise the feature maps of a pre-trained VGG16 model.
 							</p>
 							<h3>
 								Let's visualise some feature maps!
 							</h3>	
 							<p>
-								We shall now generate patterns for various feature maps throughout the convolutional layers of the model.
+								We shall now generate patterns for various feature maps throughout the convolutional layers of the model, from the earlier layers all the way to the last convolutional layer.
 							</p>
 
 							<div class="img-showcase">
@@ -157,20 +163,28 @@
 							</div>
 
 							<h3>
-								Notice how some patterns seem to be very familiar?
+								Notice how some patterns progress deeper into the model?
 							</h3>
 							<p>
-								Let us try to interpret some of these feature visualisations, and confirm our interpretations.
+								As we go into the deeper convolutional layers of the model, we can see that the feature maps progress from being simple patterns such as lines, to more complex patterns like shapes, all the way until the patterns seem to resemble recognisable images. ***CHANGE SOME OF THE FEATURE MAPS IN THE FINAL LAYER TO SOMETHING MORE OBVIOUS
 							</p>
+							
+
+							<hr class="divider">
+
 							<h3>
 								Quiz time!
 							</h3>
+							<p>
+								Let us try to interpret some feature visualisations, and confirm our interpretations.
+							</p>
 
-							<hr class="divider">
+							<!-- <hr class="divider"> -->
 
 							<div class="feature-map-quiz" id="q1">
 								<img src="images/q1.jpg">
 								<p>1. Click on the image that you think corresponds to the feature map above.</p>
+								<p>***NEED TO ZOOM IN MORE ONTO THE CHICKEN TO MAKE THE BEAK AND HEAD SHAPE MORE OBVIOUS</p>
 								
 								<div class="feature-map-quiz-answers">
 									<p></p>
