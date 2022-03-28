@@ -54,7 +54,7 @@
 								</figure>
 							</div>
 							<p>
-								However, the feature maps at the earlier layers may not have such detailed and elaborate features. Instead, the feature maps present at the earlier layers may serve to only extract out vertical lines for example.
+								However, the feature maps at the earlier layers may not have such detailed and elaborate features. Instead, the feature maps present at the earlier layers may serve to only extract very simple features such as vertical lines, for example.
 							</p>
 							<p>
 								In implementation, how a CNN works seems to be a black box, with very little true understanding of how the model does what it does. However, by understanding how the feature maps work and visualising them, we can actually break down the inner workings of the CNN, giving us explainability of the model.
@@ -154,7 +154,7 @@
 									<img src="images/layer_40_filter_45.jpg">
 								</figure>
 								<figure>
-									<img src="images/layer_40_filter_60.jpg">
+									<img src="images/layer_40_filter_256.jpg">
 									<figcaption>Filters from Layer 40</figcaption>
 								</figure>
 								<figure>
@@ -166,7 +166,7 @@
 								Notice how some patterns progress deeper into the model?
 							</h3>
 							<p>
-								As we go into the deeper convolutional layers of the model, we can see that the feature maps progress from being simple patterns such as lines, to more complex patterns like shapes, all the way until the patterns seem to resemble recognisable images. ***CHANGE SOME OF THE FEATURE MAPS IN THE FINAL LAYER TO SOMETHING MORE OBVIOUS
+								As we go into the deeper convolutional layers of the model, we can see that the feature maps progress from being simple patterns such as lines, to more complex patterns like shapes, all the way until the patterns seem to resemble recognisable images.
 							</p>
 							
 
@@ -184,12 +184,11 @@
 							<div class="feature-map-quiz" id="q1">
 								<img src="images/q1.jpg">
 								<p>1. Click on the image that you think corresponds to the feature map above.</p>
-								<p>***NEED TO ZOOM IN MORE ONTO THE CHICKEN TO MAKE THE BEAK AND HEAD SHAPE MORE OBVIOUS</p>
 								
 								<div class="feature-map-quiz-answers">
 									<p></p>
 									<p class="ans"><img src="images/dog.jpg"><span>Not quite! The patterns in the feature map seem more reminiscent of a bird with a sharp beak, whereas the dog in this image has a more rounded dog snout.</span></p>
-									<p class="ans correct"><img src="images/chicken.JPG"><span>That's right! See the slight resemblance to chicken heads in the feature map?</span></p>
+									<p class="ans correct"><img src="images/chicken-crop.JPG"><span>That's right! See the slight resemblance to chicken heads in the feature map?</span></p>
 									<p class="ans"><img src="images/bear.jpg"><span>Not quite! The bear in this image has a bear snout, which does not really match the sharp triangular shapes the feature map is looking for.</span></p>
 								</div>
 							</div>
@@ -217,7 +216,7 @@
 								What we have learnt is that by visualising some of the feature maps, we can make out certain distinct patterns which the model is using for classification.
 							</p>
 							<p>
-								However, we must be careful not to generalise too much here. It does not mean that the hexagonal filter is responsible for detecting soccer balls, it merely means that the filter responds to hexagonal structures. This filter may also be key in detecting other objects with a similar pattern.
+								However, we must be careful not to generalise too much here. It does not mean that the hexagonal filter is only responsible for detecting soccer balls. This just means that the filter responds to hexagonal structures, which is most probably used for detecting other objects with such a pattern.
 							</p>
 
 							<hr class="divider">
@@ -226,7 +225,7 @@
 								Let us try to test the hypothesis!
 							</h3>
 							<p>
-								Now, we will try to visualise the most highly activated feature maps for a given image.
+								Now, we will try to visualise the most highly activated feature maps for a given image, essentially showing what features the model detects for a given image.
 							</p>
 							<div class="feature-visualise">
 								<div class="feature-maps-rows">

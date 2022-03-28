@@ -35,8 +35,23 @@
 							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
 							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
 							<p>Now we can combine these newly gained knowledge to try and manipulate an existing image.</p>
-							<p>***INPUT HERE AN EXPLANATION OF WHAT IS THE ACTIVATION PLOTS AND WHAT DO THE AXES REPRESENT***</p>
-							<p>***EXPLAIN WHAT METHOD OF MANIPULATION WE WILL BE USING (FGSM)***</p>
+							<h3>
+								Why do we need to do this?
+							</h3>
+							<p>We will be performing pixel manipulation to both demonstrate how images can be manipulated, as well as to show the possibilities of adversarial attacks on these models.</p>
+							<p>From the previous sections, we have learnt that CNN models make use of pixel values to "recognise" features based on the activations of that particular feature map.</p>
+							<p>While this exercise is a fun exploration into how we can trick the model into misclassifying images, it also serves to give us an insight into possible adversarial attacks.</p>
+							<hr class="divider">
+							<h3>
+								Before we proceed
+							</h3>
+							<p>For the following sections, we will be using activation plots to show which filters are being activated by the model.</p>
+							<p>*** insert annoted image of activation plot ***</p>
+							<hr class="divider">
+							<h3>
+								Fast Gradient Sign Method
+							</h3>
+							<p>For the image manipulation, we will be making use of the Fast Gradient Sign Method (FGSM), which is a form of adversarial attack on CNN models. This method works by generating a pertubation image whose pixel values are of the same gradient of the cost function with respect to the data.</p>
 							<p>First, we will start off with this input image of a broccoli.</p>
 							<div class="img-showcase">
 								<figure>
@@ -52,10 +67,7 @@
 								</figure>
 								<figure>
 									<img src="images/broccoli-predictions.png" style="background-color: white;">
-									<figcaption>Predict<ul class="actions">
-										<li><a href="cnn-basic.html" class="button">Previous</a></li>
-										<li><a href="cnn-explain.html" class="button">Next</a></li>
-									</ul>on scores for original broccoli</figcaption>
+									<figcaption>Prediction scores for original broccoli</figcaption>
 								</figure>
 							</div>
 							<p>Using the knowledge we have gained previously regarding optimising pixel values, we can now try to incorporate that here to minimise the class activation of the original broccoli image.</p>
