@@ -52,6 +52,9 @@
 									<figcaption>Activation plot</figcaption>
 								</figure>
 							</div>
+							<p>This plot is an activation plot. The y-axis represents the mean activation, while the x-axis represents the various filters present in the last convolutional layer of the model.</p>
+							<p>From this plot, we are able to tell that the input image resulted in both filters 90 and 309 having a relatively high mean activation. That essentially means that the features present in those two filters are detected by the model from its convolutional layers.</p>
+							<p>If we know that filter 90 is the filter with the pattern of cat ears, and filter 309 is the filter with the pattern of the cat fur, we can somewhat guess that the input image is quite close to a cat.</p>
 							<hr class="divider">
 							<h3>
 								Fast Gradient Sign Method
