@@ -3937,6 +3937,7 @@ input, select, textarea {
 		/* text-align: center;
 		line-height: 75px;
 		font-size: 30px; */
+		border-radius: 0.75em;
 	}
 	.img-showcase > figure > figcaption {
 		width: 100%;
@@ -3961,6 +3962,7 @@ input, select, textarea {
 		width: 25%;
 		height: auto;
 		margin: 15px;
+		border-radius: 0.25em;
 	}
 
 	/* Image of the answers */
@@ -3984,6 +3986,7 @@ input, select, textarea {
 		max-width: 640px;
 		max-height:424px;
 		margin: 0px;
+		border-radius: 0.25em;
 	}
 
 	/* Correct answer */
@@ -4069,6 +4072,7 @@ input, select, textarea {
 		width: 75%;
 		height: auto;
 		margin: auto;
+		border-radius: 0.25em;
 	}
 
 	/* Options */
