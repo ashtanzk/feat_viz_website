@@ -31,7 +31,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Let's try manipulating some images!</h1>
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+							<span class="image fit"><img src="images/adversarial-banner.png" alt="" /></span>
 							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
 							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
 							<p>Now we can combine this newly gained knowledge to try and manipulate an existing image.</p>
@@ -48,7 +48,7 @@
 							<p>For the following sections, we will be using activation plots to show which filters are being activated by the model.</p>
 							<div class="img-showcase">
 								<figure>
-									<img src="images/activation-plot.png" style="width:40%; background-color: white; padding:0;">
+									<img src="images/activation-plot.png" style="width:100%; background-color: white; padding:0;">
 									<figcaption>Activation plot</figcaption>
 								</figure>
 							</div>
@@ -60,6 +60,9 @@
 								Fast Gradient Sign Method
 							</h3>
 							<p>For the image manipulation, we will be making use of the Fast Gradient Sign Method (FGSM), which is a form of adversarial attack on CNN models. This method works by generating a pertubation image whose pixel values are of the same direction as the gradient of the cost function with respect to the data. The noise is scaled by epsilon, which is usually constrained to be a small number via max norm.</p>
+							<p>In normal CNN training, the gradients of the loss function are used to nudge the weights in the opposite direction, so as to minimise the loss value, getting the model closer to the actual class.</p>
+							<p>In this case, we are making use of the opposite, but nudging the pixel values in the same direction as the loss function, maximising the loss, pushing the class further from the actual class.</p>
+							<hr class="divider">
 							<h3>
 								Let us apply this
 							</h3>
@@ -78,13 +81,16 @@
 									<figcaption>Pertubation image</figcaption>
 								</figure>
 							</div>
-							<p>We add this to the original image to generate the manipulated image of the broccoli.</p>
+							<p>We add this to the original image to generate the manipulated image of the broccoli, as shown below. You can see that the general image of the broccoli is still present, with some distortion added to the image.</p>
 							<div class="img-showcase">
 								<figure>
 									<img src="images/broccoli-adversarial.jpg">
 									<figcaption>Manipulated broccoli</figcaption>
 								</figure>
 							</div>
+							<h3>
+								What happens when you run both images through the model?
+							</h3>
 							<p>With this newly manipulated image of the broccoli, we can run this through the model to see the results. The original image and manipulated images will be run side by side to show the comparison</p>
 							<div class="img-showcase">
 								<figure>
@@ -124,7 +130,7 @@
 							</ul> -->
 							<ul class="actions">
 								<li><a href="cnn-explain.html" class="button">Previous</a></li>
-								<li><a href="index.html#one" class="button">Home</a></li>
+								<li><a href="cnn-summary.html" class="button">Next</a></li>
 							</ul>
 						</div>
 					</section>
