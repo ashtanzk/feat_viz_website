@@ -32,7 +32,6 @@
 						<div class="inner">
 							<h1 class="major">Explainability of CNN model</h1>
 							<span class="image fit"><img src="images/cnn-banner.png" alt="" /></span>
-							<p>*** Reduce banner size ***</p>
 							<p>
 								As mentioned previously, based on the features that have been extracted by the convolutional layers, classification of the image will then take place accordingly.
 							</p>
@@ -48,10 +47,9 @@
 							<p>
 								For example, we would expect that an image of a building with vaulted ceilings would have highly activated feature maps corresponding to the arched structures. 
 							</p>
-							<p>*** Increase image size ***</p>
 							<div class="img-showcase">
 								<figure>
-									<img src="images/feature-map-illustration-white.png" style="width:50%;">
+									<img src="images/feature-map-illustration-white.png" style="width:70%;">
 									<figcaption>Examples of feature maps from differing convolutional layers</figcaption>
 								</figure>
 							</div>
@@ -88,80 +86,87 @@
 								We shall now generate patterns for various feature maps throughout the convolutional layers of the model, from the earlier layers all the way to the last convolutional layer.
 							</p>
 							<p>*** Compartmentalise the feature maps to make it more obvious they belong to different layers ***</p>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_7_filter_5.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_7_filter_8.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_7_filter_13.jpg">
-								</figure>
+							
+							<button type="button" class="collapsible">Feature maps from Layer 7</button>
+							<div class="collapsible-content">
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_7_filter_5.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_7_filter_8.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_7_filter_13.jpg">
+									</figure>
+								</div>
+
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_7_filter_33.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_7_filter_39.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_7_filter_54.jpg">
+									</figure>
+								</div>
 							</div>
 
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_7_filter_33.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_7_filter_39.jpg">
-									<figcaption>Filters from Layer 7</figcaption>
-								</figure>
-								<figure>
-									<img src="images/layer_7_filter_54.jpg">
-								</figure>
+							<button type="button" class="collapsible">Feature maps from Layer 20</button>
+							<div class="collapsible-content">
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_20_filter_3.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_20_filter_5.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_20_filter_8.jpg">
+									</figure>
+								</div>
+
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_20_filter_14.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_20_filter_33.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_20_filter_38.jpg">
+									</figure>
+								</div>
 							</div>
 
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_20_filter_3.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_20_filter_5.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_20_filter_8.jpg">
-								</figure>
-							</div>
+							<button type="button" class="collapsible">Feature maps from Layer 40</button>
+							<div class="collapsible-content">
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_40_filter_8.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_40_filter_12.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_40_filter_265.jpg">
+									</figure>
+									
+								</div>
 
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_20_filter_14.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_20_filter_33.jpg">
-									<figcaption>Filters from Layer 20</figcaption>
-								</figure>
-								<figure>
-									<img src="images/layer_20_filter_38.jpg">
-								</figure>
-							</div>
-
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_40_filter_8.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_40_filter_12.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_40_filter_265.jpg">
-								</figure>
-								
-							</div>
-
-							<div class="img-showcase">
-								<figure>
-									<img src="images/layer_40_filter_45.jpg">
-								</figure>
-								<figure>
-									<img src="images/layer_40_filter_256.jpg">
-									<figcaption>Filters from Layer 40</figcaption>
-								</figure>
-								<figure>
-									<img src="images/layer_40_filter_64.jpg">
-								</figure>
+								<div class="img-showcase">
+									<figure>
+										<img src="images/layer_40_filter_45.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_40_filter_256.jpg">
+									</figure>
+									<figure>
+										<img src="images/layer_40_filter_64.jpg">
+									</figure>
+								</div>
 							</div>
 
 							<h3>
@@ -317,7 +322,25 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			
+
+			<!-- Scripts for collapsible sections -->
+			<script> 
+				var coll = document.getElementsByClassName("collapsible");
+				var i;
+
+				for (i = 0; i < coll.length; i++) {
+				coll[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.display === "block") {
+					content.style.display = "none";
+					} else {
+					content.style.display = "block";
+					}
+				});
+				}
+			</script>
+
 			<script>
 				$(document).ready(function () {
 					$("p.ans").click(function () {
