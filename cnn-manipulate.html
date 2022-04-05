@@ -37,13 +37,14 @@
 							<p>*** add in before vs after feature maps of an image that is undergoing adversarial attack. shift the following to the last page to explain what was going on here ***</p>
 							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
 							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
-							<p>Now we can combine this newly gained knowledge to try and manipulate an existing image.</p>
+							<p>Now, we can try to perform an adversarial attack on the CNN model to see how it performs.</p>
 							<h3>
 								Why do we need to do this?
 							</h3>
 							<p>We will be performing pixel manipulation to both demonstrate how images can be manipulated, as well as to show the possibilities of adversarial attacks on these models.</p>
-							<p>From the previous sections, we have learnt that CNN models make use of pixel values to "recognise" features based on the activations of that particular feature map.</p>
-							<p>While this exercise is a fun exploration into how we can trick the model into misclassifying images, it also serves to give us an insight into possible adversarial attacks.</p>
+							<!-- <p>From the previous sections, we have learnt that CNN models make use of pixel values to "recognise" features based on the activations of that particular feature map.</p>
+							<p>While this exercise is a fun exploration into how we can trick the model into misclassifying images, it also serves to give us an insight into possible adversarial attacks.</p> -->
+							<p>This will show us how the model can be attacked, and in the following section, we will demonstrate how explanability can be used to help us understand the attack.</p>
 							<hr class="divider">
 							<h3>
 								Before we proceed
@@ -59,75 +60,7 @@
 							<p>From this plot, we are able to tell that the input image resulted in both filters 90 and 309 having a relatively high mean activation. That essentially means that the features present in those two filters are detected by the model from its convolutional layers.</p>
 							<p>If we know that filter 90 is the filter with the pattern of cat ears, and filter 309 is the filter with the pattern of the cat fur, we can somewhat guess that the input image is quite close to a cat.</p>
 							<hr class="divider">
-							<h3>
-								Fast Gradient Sign Method
-							</h3>
-							<p>For the image manipulation, we will be making use of the Fast Gradient Sign Method (FGSM), which is a form of adversarial attack on CNN models. This method works by generating a pertubation image whose pixel values are of the same direction as the gradient of the cost function with respect to the data. The noise is scaled by epsilon, which is usually constrained to be a small number via max norm.</p>
-							<p>In normal CNN training, the gradients of the loss function are used to nudge the weights in the opposite direction, so as to minimise the loss value, getting the model closer to the actual class.</p>
-							<p>In this case, we are making use of the opposite, but nudging the pixel values in the same direction as the loss function, maximising the loss, pushing the class further from the actual class.</p>
-							<hr class="divider">
-							<h3>
-								Let us apply this
-							</h3>
-							<p>Using the knowledge we have gained previously regarding optimising pixel values, we can now try to incorporate that here to minimise the class activation of the original broccoli image.</p>
-							<p>First, we will start off with this input image of a broccoli.</p>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli.jpg">
-									<figcaption>Image of a broccoli</figcaption>
-								</figure>
-							</div>
-							<p>We introduce a generated image by generating pixel values to be of the same direction as the gradient of the cost function with respect to the broccoli class, giving us this pertubation image.</p>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli-pertubation.jpg">
-									<figcaption>Pertubation image</figcaption>
-								</figure>
-							</div>
-							<p>We add this to the original image to generate the manipulated image of the broccoli, as shown below. You can see that the general image of the broccoli is still present, with some distortion added to the image.</p>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli-adversarial.jpg">
-									<figcaption>Manipulated broccoli</figcaption>
-								</figure>
-							</div>
-							<h3>
-								What happens when you run both images through the model?
-							</h3>
-							<p>With this newly manipulated image of the broccoli, we can run this through the model to see the results. The original image and manipulated images will be run side by side to show the comparison</p>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli.jpg">
-									<figcaption>Image of a broccoli</figcaption>
-								</figure>
-								<figure>
-									<img src="images/broccoli-adversarial.jpg">
-									<figcaption>Manipulated broccoli</figcaption>
-								</figure>
-							</div>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli-plot.png" style="background-color: white;">
-									<figcaption>Activation plot for original broccoli</figcaption>
-								</figure>
-								<figure>
-									<img src="images/broccoli-adversarial-plot.png" style="background-color: white;">
-									<figcaption>Activation plot for manipulated broccoli</figcaption>
-								</figure>
-							</div>
-							<div class="img-showcase">
-								<figure>
-									<img src="images/broccoli-predictions.png" style="background-color: white;">
-									<figcaption>Prediction scores for original broccoli</figcaption>
-								</figure>
-								<figure>
-									<img src="images/broccoli-adversarial-predictions.png" style="background-color: white;">
-									<figcaption>Prediction scores for manipulated broccoli</figcaption>
-								</figure>
-							</div>
-							<p>The manipulated image of the broccoli on the right is now classified as a sombrero with a confidence of 29%, meaning that the addition of the pertubation has altered the class of the image.</p>
-							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
-
+							
 							<!-- <ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
 							</ul> -->
