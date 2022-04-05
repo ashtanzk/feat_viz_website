@@ -4099,18 +4099,23 @@ input, select, textarea {
 	/* Collapsible */	
 	/* Style the collapsible content. Note: hidden by default */
 	.collapsible-content {
-		padding: 0 18px;
+		/* padding: 0 18px;
 		display: none;
 		overflow: hidden;
 		background-color: #121424;
-		/* border: solid 2px !important; */
 		border-top: solid 0px !important;
 		border-bottom: solid 0px !important;
 		border-right: solid 0px !important;
 		border-left: solid 0px !important;
 		border-color: rgba(255, 255, 255, 0) !important;
 		border-radius: 0em;
-		margin-bottom: 3em;
+		margin-bottom: 3em; */
+		padding: 0 18px;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		background-color: #121424;
+		margin-bottom: 0em;
 	}
 
 	.collapsible {
@@ -4173,7 +4178,6 @@ input, select, textarea {
 			opacity: 0;
 			position: absolute;
 			top: 0;
-			width: 100%;
 		}
 
 		.collapsible.icon:before {
