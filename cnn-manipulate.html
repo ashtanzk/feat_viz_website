@@ -33,32 +33,79 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Let's try manipulating some images!</h1>
-							<span class="image fit"><img src="images/adversarial-banner.png" alt="" /></span>
-							<p>*** add in before vs after feature maps of an image that is undergoing adversarial attack. shift the following to the last page to explain what was going on here ***</p>
-							<p>Now that we know how CNN models classify images through feature map activations, the CNN is not such a black box after all.</p>
-							<p>We have also played with pixels to generate an image which highly activates a particular feature map, letting us visualise how that feature map looks like.</p>
-							<p>Now, we can try to perform an adversarial attack on the CNN model to see how it performs.</p>
-							<h3>
-								Why do we need to do this?
-							</h3>
-							<p>We will be performing pixel manipulation to both demonstrate how images can be manipulated, as well as to show the possibilities of adversarial attacks on these models.</p>
-							<!-- <p>From the previous sections, we have learnt that CNN models make use of pixel values to "recognise" features based on the activations of that particular feature map.</p>
-							<p>While this exercise is a fun exploration into how we can trick the model into misclassifying images, it also serves to give us an insight into possible adversarial attacks.</p> -->
-							<p>This will show us how the model can be attacked, and in the following section, we will demonstrate how explanability can be used to help us understand the attack.</p>
-							<hr class="divider">
-							<h3>
-								Before we proceed
-							</h3>
-							<p>For the following sections, we will be using activation plots to show which filters are being activated by the model.</p>
+							<!-- <span class="image fit"><img src="images/adversarial-banner.png" alt="" /></span> -->
+							<h3>How does the model react?</h3>
+							<p>Now, we will introduce an image that has undergone some adversarial manipulation, and we shall observe to see how the model behaves differently to this manipulated image.</p>
+							<p>We have the following two images of a tabby cat along with their prediction scores from the model:</p>
 							<div class="img-showcase">
 								<figure>
-									<img src="images/activation-plot.png" style="width:100%; background-color: white; padding:0;">
-									<figcaption>Activation plot</figcaption>
+									<img src="images/teddy.jpg">
+									<figcaption>Prediction: Tabby Cat - 55% confidence</figcaption>
+								</figure>
+								<figure>
+									<img src="images/teddy-adversarial.jpg">
+									<figcaption>Prediction: Hamper - 18.4% confidence</figcaption>
 								</figure>
 							</div>
-							<p>This plot is an activation plot. The y-axis represents the mean activation, while the x-axis represents the various filters present in the last convolutional layer of the model.</p>
-							<p>From this plot, we are able to tell that the input image resulted in both filters 90 and 309 having a relatively high mean activation. That essentially means that the features present in those two filters are detected by the model from its convolutional layers.</p>
-							<p>If we know that filter 90 is the filter with the pattern of cat ears, and filter 309 is the filter with the pattern of the cat fur, we can somewhat guess that the input image is quite close to a cat.</p>
+							<p>We can see that the image on the right, which is the manipulated image, is misclassified as a hamper.</p>
+
+							<h3>How do we use explanability for this?</h3>
+							<p>From the previous section, we learnt that we can visualise the activated feature maps, given an input image, to see what patterns are identified by the model. Let us apply that here.</p>
+							<p>Here are some feature maps visualised from Layer 40 of the model. Click on either tabby cat images to see which feature maps are actually activated by the model.</p>
+							<div class="adv-showcase-option">
+								<figure id="tabby" class="showcase-opt">
+									<img src="images/teddy.jpg" style="padding:0px">
+								</figure>
+								<figure id="tabby-adv" class="showcase-opt">
+									<img src="images/teddy-adversarial.jpg" style="padding:0px">
+								</figure>
+							</div>
+							<div id="q" class="adv-showcase">
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_8.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_12.jpg">
+								</figure>
+								<figure class="tabby-adv">
+									<img src="images/tabbycat-feature-1.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_45.jpg">
+								</figure>
+							</div>
+
+							<div id="w" class="adv-showcase">
+								<figure class="tabby-adv">
+									<img src="images/tabbycat-feature-2.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_256.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_64.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_265.jpg">
+								</figure>
+							</div>
+							<div id="e" class="adv-showcase">
+								<figure class="tabby">
+									<img src="images/teddy-adversarial-feature.jpg">
+								</figure>
+								<figure class="tabby-adv">
+									<img src="images/tabbycat-feature-3.jpg">
+								</figure>
+								<figure class="tabby tabby-adv">
+									<img src="images/layer_40_filter_443.jpg">
+								</figure>
+								<figure class="tabby-adv">
+									<img src="images/tabbycat-feature-4.jpg">
+								</figure>
+							</div>
+							<h3>Did you see it?</h3>
+							<p>When the manipulated image is passed through the model, the feature maps that are activated differ from the original image.</p>
+							<p>By visualising the feature maps, we are able to see that the activated feature maps do not resemble any cat features, giving us a clue that the model is not performing correctly.</p>
 							<hr class="divider">
 							
 							<!-- <ul class="actions">
@@ -90,6 +137,48 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- Script for selecting option for feature maps -->
+			<script>
+				$("figure.showcase-opt").click(function () {
+					var content = this.id;
+					var row = document.getElementsByClassName("adv-showcase");
+
+					// Check if button has been clicked before
+					if (this.classList.contains("click")) {
+						// Remove click
+						this.classList.remove("click");
+						this.children[0].style.removeProperty('border');
+						for (var i = 0; i < row.length; i++) {
+							var children = row[i].children;
+							for (var x = 0; x < children.length; x++) {
+								// Revert all to original
+								children[x].style.opacity = "1";
+							}
+						}
+						return;
+					}
+					
+					//  Remove click from all options (reset)
+					var remove = document.getElementsByClassName("showcase-opt click");
+					for (var n = 0; n < remove.length; n++) {
+						remove[n].children[0].style.removeProperty('border');
+						remove[n].classList.remove("click");
+					}
+					// Click current button
+					this.classList.add("click");
+					this.children[0].style.border = "2px solid rgb(235, 235, 235)";
+					for (var i = 0; i < row.length; i++) {
+						var children = row[i].children;
+						for (var x = 0; x < children.length; x++) {
+							if (children[x].classList.contains(content)) {
+								children[x].style.opacity = "0.3";
+							} else {
+								children[x].style.opacity = "1";
+							}
+						}
+					}
+				})
+			</script>
 
 	</body>
 </html>

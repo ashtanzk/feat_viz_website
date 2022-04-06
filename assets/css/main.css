@@ -3918,6 +3918,7 @@ input, select, textarea {
 		}
 
 /* Custom */
+	/* Flex image array */
 	.img-showcase {
 		display: flex;
 		flex-wrap: nowrap;
@@ -4233,3 +4234,70 @@ input, select, textarea {
 				.collapsible:hover:active:after {
 					opacity: 0.1;
 				}
+
+	/* Flex image array for adversarial*/
+	.adv-showcase {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.adv-showcase > figure {
+		margin: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	.adv-showcase > figure > img {
+		width: 100%;
+		height: auto;
+		/* margin: 10px; */
+		object-fit: contain;
+		padding: 10px;
+		/* text-align: center;
+		line-height: 75px;
+		font-size: 30px; */
+		border-radius: 0.75em;
+	}
+	.adv-showcase .hide {
+		opacity: 0.3;
+	}
+	.adv-showcase > figure > figcaption {
+		width: 100%;
+		height: auto;
+		text-align: center;
+		margin-bottom: 30px;
+		line-height: 20px;
+		font-size: 90%;
+	}
+	.adv-showcase-option {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.adv-showcase-option > figure {
+		margin: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	.adv-showcase-option > figure > img {
+		width: 100%;
+		height: auto;
+		/* margin: 10px; */
+		object-fit: contain;
+		padding: 10px;
+		/* text-align: center;
+		line-height: 75px;
+		font-size: 30px; */
+		border-radius: 0.75em;
+	}
+	.adv-showcase-option > figure > figcaption {
+		width: 100%;
+		height: auto;
+		text-align: center;
+		margin-bottom: 30px;
+		line-height: 20px;
+		font-size: 90%;
+	}
+	.adv-showcase-option img:hover {
+		border: 2px solid rgb(235, 235, 235);
+	}
+	
