@@ -16,11 +16,11 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Convolutional Neural Networks</a>
+				<a href="index.html" class="title">Looking into the Blackbox</a>
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html#one">CNN</a></li>
+						<li><a href="index.html#one">Looking into the Blackbox</a></li>
 						<li><a href="index.html#two">About us</a></li>
 					</ul>
 				</nav>
@@ -121,7 +121,13 @@
 								</figure>
 							</div>
 							<p>In the original image, filter 475 has a very high mean activation compared to the rest of the filters. We can assume that that particular filter is responsible for the broccoli classification.</p>
-							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
+							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation 
+								.collapsible:after {
+								  content: '\02795'; /* Unicode character for "plus" sign (+) */
+								  font-size: 13px;
+								  color: white;
+								  float: right;
+								  margin-left: 5px;to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
 							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
 							<hr class="divider">
 							<h3>What is the impact, and how can we prevent it?</h3>
