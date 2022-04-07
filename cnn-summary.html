@@ -38,7 +38,7 @@
 								Fast Gradient Sign Method
 							</h3>
 							<p>The method that was used to produce the manipulated image is called the Fast Gradient Sign Method (FGSM).</p>
-							<p>That is a form of adversarial attack on CNN models. This method works by generating a pertubation image whose pixel values are of the same direction as the gradient of the cost function with respect to the data. The noise is scaled by epsilon, which is usually constrained to be a small number via max norm.</p>
+							<p>That is a form of adversarial attack on CNN models. This method works by generating a perturbation image whose pixel values are of the same direction as the gradient of the cost function with respect to the data. The noise is scaled by epsilon, which is usually constrained to be a small number via max norm.</p>
 							<p>In normal CNN training, the gradients of the loss function are used to nudge the weights in the opposite direction, so as to minimise the loss value, getting the model closer to the actual class.</p>
 							<p>In this case, we are making use of the opposite, but nudging the pixel values in the same direction as the loss function, maximising the loss, pushing the class further from the actual class.</p>
 							<div class="img-showcase">
@@ -46,7 +46,7 @@
 									<img src="images/adversarial-banner.png" style="width:100%; background-color: white; padding:0;">
 								</figure>
 							</div>
-							<p>This method works by adding the generated pertubation image to the original image, resulting in the manipulated image.</p>
+							<p>This method works by adding the generated perturbation image to the original image, resulting in the manipulated image.</p>
 							<hr class="divider">
 							<h3>
 								Before we proceed
@@ -72,11 +72,11 @@
 									<figcaption>Image of a broccoli</figcaption>
 								</figure>
 							</div>
-							<p>We introduce a generated image by generating pixel values to be of the same direction as the gradient of the cost function with respect to the broccoli class, giving us this pertubation image.</p>
+							<p>We introduce a generated image by generating pixel values to be of the same direction as the gradient of the cost function with respect to the broccoli class, giving us this perturbation image.</p>
 							<div class="img-showcase">
 								<figure>
-									<img src="images/broccoli-pertubation.jpg">
-									<figcaption>Pertubation image</figcaption>
+									<img src="images/broccoli-perturbation.jpg">
+									<figcaption>Perturbation image</figcaption>
 								</figure>
 							</div>
 							<p>We add this to the original image to generate the manipulated image of the broccoli, as shown below. You can see that the general image of the broccoli is still present, with some distortion added to the image.</p>
@@ -89,7 +89,7 @@
 							<h3>
 								What happens when you run both images through the model?
 							</h3>
-							<p>With this newly manipulated image of the broccoli, we can run this through the model to see the results. The original image and manipulated images will be run side by side to show the comparison</p>
+							<p>With this newly manipulated image of the broccoli, we can run this through the model to see the results. The original image and manipulated images will be run side by side to show the comparison.</p>
 							<div class="img-showcase">
 								<figure>
 									<img src="images/broccoli.jpg">
@@ -121,21 +121,15 @@
 								</figure>
 							</div>
 							<p>In the original image, filter 475 has a very high mean activation compared to the rest of the filters. We can assume that that particular filter is responsible for the broccoli classification.</p>
-							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation 
-								.collapsible:after {
-								  content: '\02795'; /* Unicode character for "plus" sign (+) */
-								  font-size: 13px;
-								  color: white;
-								  float: right;
-								  margin-left: 5px;to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
-							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
+							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
+							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the perturbation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
 							<hr class="divider">
 							<h3>What is the impact, and how can we prevent it?</h3>
 							<p>Adversarial attacks on CNN models can mean more than just lower the accuracy of the model. When put into context, CNN models applied in fields such as autonomous vehicles are contingent on the models performing as they should be.</p>
-							<p>What if a autonomous car is fed a manipulated image of a red light, resulting in the misclassifcation as a green light? That can lead to catastrophic consequences.</p>
+							<p>What if an autonomous car is fed a manipulated image of a red light, resulting in the misclassification as a green light? That can lead to catastrophic consequences.</p>
 							<p>As such, we should also know of some ways that we can mitigate this.</p>
 							<ul>
-								<li><strong>Adversarial training with pertubation or noise:</strong> Training on manipulated images to reduce misclassification</li>
+								<li><strong>Adversarial training with perturbation or noise:</strong> Training on manipulated images to reduce misclassification</li>
 								<li><strong>Gradient masking:</strong> Prevents attacker from access to the useful gradient</li>
 								<li><strong>Ensemble adversarial learning:</strong> Training multiple classifiers and combining them to improve robustness</li>
 							</ul>
@@ -144,8 +138,8 @@
 							<h3>In summary</h3>
 							<p>We have learnt that CNNs have three main parts: Input, Feature Learning, and Classification. Feature learning takes place in the CNN through the use of filters, ultimately resulting in the model learning many different feature maps.</p>
 							<p>These feature maps are used by the model to determine if an image belongs to a certain class. We were able to make use of pixel value manipulation to visualise these feature maps, which gave us better insight as to how the model "recognises" patterns.</p>
-							<p>Finally, we were able to piece together the knowledge of feature maps and pixel manipulation to introduce pertubations through an adversarial attack, which resulted in the model misclassifying the images.</p>
-							<p>The use of the adversarial attack gave us valuable insight as to why explanability of CNN models is important, and how we can use that to our advantage.</p>
+							<p>Finally, we were able to piece together the knowledge of feature maps and pixel manipulation to introduce perturbations through an adversarial attack, which resulted in the model misclassifying the images.</p>
+							<p>The use of the adversarial attack gave us valuable insight as to why explainability of CNN models is important, and how we can use that to our advantage.</p>
 							<!-- <ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
 							</ul> -->
