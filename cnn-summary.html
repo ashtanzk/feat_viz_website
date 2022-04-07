@@ -123,13 +123,23 @@
 							<p>In the original image, filter 475 has a very high mean activation compared to the rest of the filters. We can assume that that particular filter is responsible for the broccoli classification.</p>
 							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
 							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the pertubation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
-
+							<hr class="divider">
+							<h3>What is the impact, and how can we prevent it?</h3>
+							<p>Adversarial attacks on CNN models can mean more than just lower the accuracy of the model. When put into context, CNN models applied in fields such as autonomous vehicles are contingent on the models performing as they should be.</p>
+							<p>What if a autonomous car is fed a manipulated image of a red light, resulting in the misclassifcation as a green light? That can lead to catastrophic consequences.</p>
+							<p>As such, we should also know of some ways that we can mitigate this.</p>
+							<ul>
+								<li><strong>Adversarial training with pertubation or noise:</strong> Training on manipulated images to reduce misclassification</li>
+								<li><strong>Gradient masking:</strong> Prevents attacker from access to the useful gradient</li>
+								<li><strong>Ensemble adversarial learning:</strong> Training multiple classifiers and combining them to improve robustness</li>
+							</ul>
+							<p>This list is not exhaustive, and the methods depend on the type of model and adversarial attacks being applied.</p> 
 							<hr class="divider">
 							<h3>In summary</h3>
 							<p>We have learnt that CNNs have three main parts: Input, Feature Learning, and Classification. Feature learning takes place in the CNN through the use of filters, ultimately resulting in the model learning many different feature maps.</p>
 							<p>These feature maps are used by the model to determine if an image belongs to a certain class. We were able to make use of pixel value manipulation to visualise these feature maps, which gave us better insight as to how the model "recognises" patterns.</p>
 							<p>Finally, we were able to piece together the knowledge of feature maps and pixel manipulation to introduce pertubations through an adversarial attack, which resulted in the model misclassifying the images.</p>
-							<p>All in all, the exercise allowed us to better understand what are filters and the resulting feature maps used for in CNNs, as well as how they play their part in image classification. By also introducing adversarial attacks, we are able to take that into consideration when building our own models.</p>
+							<p>The use of the adversarial attack gave us valuable insight as to why explanability of CNN models is important, and how we can use that to our advantage.</p>
 							<!-- <ul class="actions">
 								<li><a href="index.html#one" class="button">Back</a></li>
 							</ul> -->
@@ -137,7 +147,7 @@
 							
 							<ul class="actions">
 								<li><a href="cnn-manipulate.html" class="button">Previous</a></li>
-								<li><a href="index.html#two" class="button">End.</a></li>
+								<li><a href="index.html#two" class="button">End</a></li>
 							</ul>
 						</div>
 					</section>
