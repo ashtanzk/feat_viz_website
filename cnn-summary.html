@@ -120,12 +120,12 @@
 									<figcaption>Prediction scores for manipulated broccoli</figcaption>
 								</figure>
 							</div>
-							<p>In the original image, filter 475 has a very high mean activation compared to the rest of the filters. We can assume that that particular filter is responsible for the broccoli classification.</p>
+							<p>In the original image, filter 475 has a very high mean activation compared to the rest of the filters. Let us assume that that particular filter is responsible for the broccoli classification.</p>
 							<p>The manipulated image, on the other hand, sees the same filter have a much lower mean activation, resulting in it having a closer activation to several other layers. This results in the model changing the classification of the image to be a sombrero with a confidence of 29%</p>
 							<p>To the human eye, the manipulated image still resembles a broccoli, with the addition of some form of distortion to the image. This distortion, which is attributed to the perturbation, is enough to lower the class activation of the broccoli feature map, effectively altering the classification of the image. </p>
 							<hr class="divider">
 							<h3>What is the impact, and how can we prevent it?</h3>
-							<p>Adversarial attacks on CNN models can mean more than just lower the accuracy of the model. When put into context, CNN models applied in fields such as autonomous vehicles are contingent on the models performing as they should be.</p>
+							<p>Adversarial attacks on CNN models can mean more than just lowering the accuracy of the model. When put into context, CNN models applied in fields such as autonomous vehicles are contingent on the models performing as they should be.</p>
 							<p>What if an autonomous car is fed a manipulated image of a red light, resulting in the misclassification as a green light? That can lead to catastrophic consequences.</p>
 							<p>As such, we should also know of some ways that we can mitigate this.</p>
 							<ul>
